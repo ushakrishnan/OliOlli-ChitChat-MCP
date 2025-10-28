@@ -100,6 +100,10 @@ module jokesmcpHttpTypescript 'br/public:avm/res/app/container-app:0.8.0' = {
             name: 'PORT'
             value: '3000'
           }
+          {
+            name: 'WEATHER_API_KEY'
+            value: '26cfc22650dc45c7aa2190015252810'
+          }
         ]
       }
     ]
