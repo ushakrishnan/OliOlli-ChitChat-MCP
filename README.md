@@ -2,7 +2,17 @@
 
 🚀 **Enhanced MCP Server** - An advanced implementation of the Microsoft Copilot Studio MCP template, upgraded with comprehensive joke and weather functionality for enterprise AI assistants.
 
-## 🌟 What Makes This Special?
+## � Live Demonstration
+
+See the OliOlli MCP Server in action with Microsoft Copilot Studio integration:
+
+[![OliOlli MCP Server Demo](https://img.youtube.com/vi/oLNaZOOcOyA/maxresdefault.jpg)](https://youtu.be/oLNaZOOcOyA)
+
+**[▶️ Watch Full Demo on YouTube](https://youtu.be/oLNaZOOcOyA)**
+
+*Demonstrates weather forecasts, joke integration, and smart parameter elicitation in Microsoft Copilot Studio*
+
+## �🌟 What Makes This Special?
 
 This server builds upon the **Microsoft Copilot Studio ❤️ MCP** template but has been significantly enhanced with:
 
