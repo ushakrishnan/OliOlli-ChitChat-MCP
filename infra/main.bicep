@@ -14,6 +14,10 @@ param jokesmcpHttpTypescriptExists bool
 @description('Id of the user or app to assign application roles')
 param principalId string
 
+@description('Weather API key for weather functionality')
+@secure()
+param weatherApiKey string = ''
+
 // Tags that should be applied to all resources.
 // 
 // Note that 'azd-service-name' tags should be applied separately to service host resources.
@@ -37,6 +41,7 @@ module resources 'resources.bicep' = {
     location: location
     tags: tags
     principalId: principalId
+    weatherApiKey: weatherApiKey
     jokesmcpHttpTypescriptExists: jokesmcpHttpTypescriptExists
   }
 }

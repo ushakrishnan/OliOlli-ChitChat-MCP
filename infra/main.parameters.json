@@ -8,6 +8,9 @@
       "location": {
         "value": "${AZURE_LOCATION}"
       },
+      "weatherApiKey": {
+        "value": "${WEATHER_API_KEY}"
+      },
       "jokesmcpHttpTypescriptExists": {
         "value": "${SERVICE_JOKESMCP_HTTP_TYPESCRIPT_RESOURCE_EXISTS=false}"
       },

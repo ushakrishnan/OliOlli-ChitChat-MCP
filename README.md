@@ -1,238 +1,266 @@
-# OliOlli MCP Server# Microsoft Copilot Studio ❤️ MCP
+# OliOlli MCP Server
 
+🚀 **Enhanced MCP Server** - An advanced implementation of the Microsoft Copilot Studio MCP template, upgraded with comprehensive joke and weather functionality for enterprise AI assistants.
 
+## 🌟 What Makes This Special?
 
-A Model Context Protocol (MCP) server providing joke and weather functionality for AI assistants like Copilot Studio and Claude Desktop.Welcome to the **Microsoft Copilot Studio ❤️ MCP** lab. In this lab, you will learn how to deploy an MCP Server, and how to add it to Microsoft Copilot Studio.
+This server builds upon the **Microsoft Copilot Studio ❤️ MCP** template but has been significantly enhanced with:
 
+- **🎭 Complete Joke API Integration** - Chuck Norris jokes with categories + Dad jokes
+- **🌤️ Advanced Weather Services** - Real-time conditions, historical data, and forecasts  
+- **🤖 Sophisticated Parameter Elicitation** - Smart conversational prompting with Zod validation
+- **🔧 Production-Ready Infrastructure** - Azure Container Apps deployment with environment variables
+- **📚 Enterprise Documentation** - Complete integration guides for Copilot Studio and Claude Desktop
+- **✅ Comprehensive Testing Suite** - Automated validation for local and Azure deployments
 
+> **Based on**: [Microsoft Copilot Studio MCP Template](https://github.com/microsoft/mcsmcp) - Enhanced for real-world enterprise scenarios
 
-## Features## ❓ What is MCP?
+## ❓ What is MCP?
 
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open protocol that standardizes how applications provide context to LLMs, defined by [Anthropic](https://www.anthropic.com/). MCP provides a standardized way to connect AI models to different data sources and tools. MCP allows makers to seamlessly integrate existing knowledge servers and APIs directly into Copilot Studio.
 
+Currently, Copilot Studio only supports Tools. To learn more about current capabilities, see [aka.ms/mcsmcp](https://aka.ms/mcsmcp). There are some known issues & planned improvements. These are listed [here](#known-issues-and-planned-improvements).
 
-### 🎭 Joke Tools[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open protocol that standardizes how applications provide context to LLMs, defined by [Anthropic](https://www.anthropic.com/). MCP provides a standardized way to connect AI models to different data sources and tools. MCP allows makers to seamlessly integrate existing knowledge servers and APIs directly into Copilot Studio.
+## 🆚 Template vs Enhanced Implementation
+
+**Microsoft's Base Template** provides basic MCP structure and Copilot Studio integration patterns.
+
+**OliOlli Enhancement** adds production-ready features:
+- ✅ **Real API Integrations** (WeatherAPI.com, Chuck Norris API, Dad Jokes API)
+- ✅ **Smart Parameter Handling** with conversational elicitation  
+- ✅ **Enterprise Error Handling** and validation
+- ✅ **Azure Production Deployment** with environment variables
+- ✅ **Comprehensive Documentation** and testing suite
+
+## 🎯 Enhanced Features
+
+### 🎭 Joke Tools
 
 - **Chuck Norris Jokes**: Random jokes and category-specific jokes
-
-- **Dad Jokes**: Random dad jokes from icanhazdadjoke.comCurrently, Copilot Studio only supports Tools. To learn more about current capabilities, see [aka.ms/mcsmcp](https://aka.ms/mcsmcp). There are some known issues & planned improvements. These are listed [here](#known-issues-and-planned-improvements).
-
+- **Dad Jokes**: Random dad jokes from icanhazdadjoke.com
 - **Categories**: Get available Chuck Norris joke categories
-
-## 🆚 MCP vs Connectors
 
 ### 🌤️ Weather Tools
 
-- **Current Weather**: Real-time weather conditionsWhen do you use MCP? And when do you use connectors? Will MCP replace connectors?
-
+- **Current Weather**: Real-time weather conditions
 - **Weather History**: Historical weather data
+- **Weather Forecast**: Multi-day weather forecasts
 
-- **Weather Forecast**: Multi-day weather forecastsMCP servers are made available to Copilot Studio using connector infrastructure, so these questions are not really applicable. The fact that MCP servers use the connector infrastructure means they can employ enterprise security and governance controls such as [Virtual Network](https://learn.microsoft.com/power-platform/admin/vnet-support-overview) integration, [Data Loss Prevention](https://learn.microsoft.com/power-platform/admin/wp-data-loss-prevention) controls, [multiple authentication methods](https://learn.microsoft.com/connectors/custom-connectors/#2-secure-your-api)—all of which are available in this release—while supporting real-time data access for AI-powered agents.
+## ⚙️ Prerequisites
 
-
-
-## Quick StartSo, MCP and connectors are really **better together**.
-
-
-
-### Prerequisites## ⚙️ Prerequisites
-
-- Node.js 18+
-
-- Azure CLI (for deployment)- Visual Studio Code installed ([link](https://code.visualstudio.com/download))
-
-- Weather API key from [WeatherAPI.com](https://www.weatherapi.com/)- Node v22 (ideally installed via [nvm for Windows](https://github.com/coreybutler/nvm-windows) or [nvm](https://github.com/nvm-sh/nvm))
-
+- Visual Studio Code installed ([link](https://code.visualstudio.com/download))
+- Node v22 (ideally installed via [nvm for Windows](https://github.com/coreybutler/nvm-windows) or [nvm](https://github.com/nvm-sh/nvm))
 - Git installed ([link](https://git-scm.com/downloads))
-
-### Local Development- Docker installed ([link](http://aka.ms/azure-dev/docker-install))
-
+- Docker installed ([link](http://aka.ms/azure-dev/docker-install))
 - Azure Developer CLI installed ([link](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd))
+- Azure Subscription (with payment method added)
+- GitHub account
+- Copilot Studio trial or developer account
+- **Weather API Key** from [WeatherAPI.com](https://www.weatherapi.com/) (free tier available)
 
-1. **Clone and Install**- Azure Subscription (with payment method added)
+## 🚀 Quick Start Guide
 
-   ```bash- GitHub account
+### Option 1: Use This Enhanced Server Directly
 
-   git clone <repository-url>- Copilot Studio trial or developer account
-
-   cd OliOlli
-
-   npm install## ➕ Create a new GitHub repository based on the template
-
+1. **Clone this repository**:
+   ```bash
+   git clone https://github.com/ushakrishnan/OliOlli-ChitChat-MCP.git
+   cd OliOlli-ChitChat-MCP
    ```
 
-1. Select `Use this template`
-
-2. **Environment Setup**1. Select `Create a new repository`
-
+2. **Set up environment**:
    ```bash
-
-   # Create .env file    ![](./assets/usetemplate.png)
-
+   npm install
    echo "WEATHER_API_KEY=your_api_key_here" > .env
+   ```
+   
+   > **⚠️ Security Note**: Never commit your `.env` file or API keys to version control. The `.env` file is already in `.gitignore` to prevent this.
 
-   ```1. Select the right `Owner` (it might already be selected when you have only one owner to choose from)
+3. **Run locally** or **Deploy to Azure** (see sections below)
 
-1. Give it a `Repository name`
+### Option 2: Start from Microsoft Template and Add Enhancements
 
-3. **Build and Run**1. Optionally you can give it a `Description`
+If you want to build this enhancement yourself:
 
-   ```bash1. Select `Private`
+### Option 2: Start from Microsoft Template and Add Enhancements
 
-   npm run build1. Select `Create repository`
+If you want to build this enhancement yourself:
 
-   node dist/server.js
+1. **Start with Microsoft's template**:
+   - Go to [Microsoft's MCP Template](https://github.com/microsoft/mcsmcp)
+   - Click `Use this template` → `Create a new repository`
+   - Follow the basic setup instructions
 
-   ```    This will take a little while. After it's done, you will be directed to the newly created repository.
+2. **Add the enhancements from this repo**:
+   - Copy the enhanced `src/server.ts` with weather and joke integrations
+   - Add the `tests/` folder for comprehensive testing
+   - Update `infra/resources.bicep` with environment variables
+   - Copy the `docs/` folder with detailed integration guides
 
+## 🏃‍♀️ Run Locally
 
-
-   Server runs on `http://localhost:3000`## ⚖️ Choice: Run the server locally or deploy to Azure
-
-
-
-### Azure DeploymentNow you have a choice! You either run the server locally - or you can deploy it to Azure.
-
-
-
-```bashThere are a couple of steps that you need to do for both:
-
-azd deploy
-
-```1. Clone this repository by running the following command (replace `{account}` by your own GitHub account name): 
-
-
-
-## Project Structure    `git clone https://github.com/{account}/mcsmcp.git`
-
-
-
-```1. Open Visual Studio Code and open the cloned folder
-
-OliOlli/1. Open the terminal and navigate to the cloned folder
-
-├── src/
-
-│   └── server.ts              # Main MCP server### 🏃‍♀️ Run the MCP Server Locally
-
-├── infra/                     # Azure infrastructure (Bicep)
-
-├── tests/                     # Test scripts1. Run `npm install`
+1. Run `npm install`
 
 ├── docs/                      # Documentation1. Run `npm run build && npm run start`
 
 ├── dist/                      # Compiled output
 
-├── azure.yaml                 # Azure Developer CLI config    ![Terminal view after building and starting the server](./assets/vscode-terminal-run-start.png)
+1. Run `npm run build && npm run start`
 
-├── package.json               # Dependencies
+    ![Terminal view after building and starting the server](./assets/vscode-terminal-run-start.png)
 
-├── tsconfig.json              # TypeScript config1. Select `PORTS` at the top of the Visual Studio Code Terminal
+1. Select `PORTS` at the top of the Visual Studio Code Terminal
 
-├── Dockerfile                 # Container configuration
-
-└── .env                       # Environment variables    ![Image of VS Code where the terminal is open and the PORTS tab is highlighted](./assets/vscode-terminal-ports.png)
-
-```
+    ![Image of VS Code where the terminal is open and the PORTS tab is highlighted](./assets/vscode-terminal-ports.png)
 
 1. Select the green `Forward a Port` button
 
-## API Endpoints
-
     ![Image of VS Code where the PORTS tab is open and the green `Forward a Port` button is highlighted](./assets/vscode-terminal-ports-forward.png)
 
-- `POST /mcp` - MCP protocol endpoint
-
-- `GET /health` - Health check1. Enter `3000` as the port number (this should be the same as the port number you see when you ran the command in step 5). You might be prompted to sign in to GitHub, if so please do this, since this is required to use the port forwarding feature.
+1. Enter `3000` as the port number (this should be the same as the port number you see when you ran the command in step 5). You might be prompted to sign in to GitHub, if so please do this, since this is required to use the port forwarding feature.
 
 1. Right click on the row you just added and select `Port visibility` > `Public` to make the server publicly available
 
-## Tools Available1. Ctrl + click on the `Forwarded address`, which should be something like: `https://something-3000.something.devtunnels.ms`
+1. Ctrl + click on the `Forwarded address`, which should be something like: `https://something-3000.something.devtunnels.ms`
 
 1. Select `Copy` on the following pop-up to copy the URL
 
-| Tool | Description | Parameters |
+    ![View of the PORTS setup with highlighted the port, the forwarded address and the visibility](./assets/vscode-terminal-ports-setup.png) 
 
-|------|-------------|------------|    ![View of the PORTS setup with highlighted the port, the forwarded address and the visibility](./assets/vscode-terminal-ports-setup.png) 
+1. Open to the browser of your choice and paste the URL in the address bar, type `/mcp` behind it and hit enter
 
-| `get-chuck-joke` | Random Chuck Norris joke | None |
-
-| `get-chuck-joke-by-category` | Chuck Norris joke by category | `category` (string) |1. Open to the browser of your choice and paste the URL in the address bar, type `/mcp` behind it and hit enter
-
-| `get-chuck-categories` | List joke categories | None |
-
-| `get-dad-joke` | Random dad joke | None |If all went well, you will see the following error message:
-
-| `get-current-weather` | Current weather | `location` (string) |
-
-| `get-weather-history` | Historical weather | `location` (string), `date` (YYYY-MM-DD) |```json
-
-| `get-weather-forecast` | Weather forecast | `location` (string), `days` (1-10, default: 3) |{"jsonrpc":"2.0","error":{"code":-32000,"message":"Method not allowed."},"id":null}
-
-```
-
-## Testing
-
-Don't worry - this error message is nothing to be worried about!
-
-Run test scripts from the `tests/` folder:
-
-### 🌎 Deploy to Azure
-
-```bash
-
-# Test weather functionality> [!IMPORTANT]
-
-node tests/test-weather.js> As listed in the [prerequisites](#️-prerequisites), the [Azure Developer CLI ](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd) needs to be installed on your machine for this part.
-
-
-
-# Test parameter elicitationMake sure to login to Azure Developer CLI if you haven't done that yet.
-
-node tests/test-elicitation.js
-
-``````azurecli
-
-azd auth login
-
-## Integration```
-
-
-
-### Copilot Studio> [!WARNING]  
-
-Configure your Copilot with the Azure endpoint:> After running `azd up`, you will have an MCP Server running on Azure that is publicly available. Ideally, you don't want that. Make sure to run `azd down` after finishing the lab to delete all the resources from your Azure subscription. Learn how to run `azd down` by going to [this section](#-remove-the-azure-resources). 
-
-`https://jokesmcp-http-typescript.livelysmoke-c2b03354.centralus.azurecontainerapps.io/mcp`
-
-Run the following command in the terminal:
-
-### Claude Desktop
-
-See `docs/` for Claude Desktop integration guide.```azurecli
-
-azd up
-
-## Contributing```
-
-
-
-See `docs/` for contribution guidelines and code of conduct.For the unique environment name, enter `mcsmcplab` or something similar. Select the Azure Subscription to use and select a value for the location. After that, it will take a couple of minutes before the server has been deployed. When it's done - you should be able to go to the URL that's listed at the end and add `/mcp` to the end of that URL.
-
-
-
-## License![Azd deploy server output](./assets/azd-deploy-server.png)
-
-
-
-MIT License - see LICENSE file for details.You should again see the following error:
+If all went well, you will see the following error message:
 
 ```json
 {"jsonrpc":"2.0","error":{"code":-32000,"message":"Method not allowed."},"id":null}
 ```
 
-## 👨‍💻 Use the Jokes MCP Server in Visual Studio Code / GitHub Copilot
+Don't worry - this error message is nothing to be worried about!
 
-To use the Jokes MCP Server, you need to use the URL of your server (can be either your devtunnel URL or your deployed Azure Container App) with the `/mcp` part at the end and add it as an MCP Server in Visual Studio Code.
+### 🌎 Deploy to Azure
+
+> [!IMPORTANT]
+> As listed in the [prerequisites](#️-prerequisites), the [Azure Developer CLI ](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd) needs to be installed on your machine for this part.
+
+Make sure to login to Azure Developer CLI if you haven't done that yet.
+
+```azurecli
+azd auth login
+```
+
+Set your Weather API key as an environment variable:
+
+```bash
+# Windows (PowerShell)
+$env:WEATHER_API_KEY="your_api_key_here"
+
+# Linux/Mac
+export WEATHER_API_KEY="your_api_key_here"
+```
+
+> [!WARNING]  
+> After running `azd up`, you will have an MCP Server running on Azure that is publicly available. Ideally, you don't want that. Make sure to run `azd down` after finishing the lab to delete all the resources from your Azure subscription. Learn how to run `azd down` by going to [this section](#-remove-the-azure-resources). 
+
+Run the following command in the terminal:
+
+```azurecli
+azd up
+```
+
+For the unique environment name, enter `mcsmcplab` or something similar. Select the Azure Subscription to use and select a value for the location. After that, it will take a couple of minutes before the server has been deployed. When it's done - you should be able to go to the URL that's listed at the end and add `/mcp` to the end of that URL.
+
+![Azd deploy server output](./assets/azd-deploy-server.png)
+
+You should again see the following error:
+
+```json
+{"jsonrpc":"2.0","error":{"code":-32000,"message":"Method not allowed."},"id":null}
+```
+
+## Project Structure
+
+```
+OliOlli/
+├── src/
+│   └── server.ts              # Main MCP server
+├── infra/                     # Azure infrastructure (Bicep)
+├── tests/                     # Test scripts
+├── docs/                      # Documentation
+├── dist/                      # Compiled output
+├── azure.yaml                 # Azure Developer CLI config
+├── package.json               # Dependencies
+├── tsconfig.json              # TypeScript config
+├── Dockerfile                 # Container configuration
+└── .env                       # Environment variables
+```
+
+## API Endpoints
+
+- `POST /mcp` - MCP protocol endpoint
+- `GET /health` - Health check
+
+## Tools Available
+
+| Tool | Description | Parameters |
+|------|-------------|------------|
+| `get-chuck-joke` | Random Chuck Norris joke | None |
+| `get-chuck-joke-by-category` | Chuck Norris joke by category | `category` (string) |
+| `get-chuck-categories` | List joke categories | None |
+| `get-dad-joke` | Random dad joke | None |
+| `get-current-weather` | Current weather | `location` (string) |
+| `get-weather-history` | Historical weather | `location` (string), `date` (YYYY-MM-DD) |
+| `get-weather-forecast` | Weather forecast | `location` (string), `days` (1-10, default: 3) |
+
+## Testing
+
+Run test scripts from the `tests/` folder:
+
+```bash
+# Test weather functionality
+node tests/test-weather.js
+
+# Test parameter elicitation
+node tests/test-elicitation.js
+```
+
+## Integration
+
+### Copilot Studio
+
+Use your deployed server endpoint:
+
+**Local Development**: `https://your-devtunnel-url.devtunnels.ms/mcp`  
+**Azure Deployment**: `https://your-app-name.azurecontainerapps.io/mcp`
+
+### Claude Desktop
+
+See comprehensive integration guide in `docs/COPILOT_STUDIO_GUIDE.md`
+
+### GitHub Copilot (VS Code)
+
+See integration instructions in `docs/` folder with step-by-step setup.
+
+## � Key Enhancements Over Base Template
+
+This implementation demonstrates **production-ready MCP patterns**:
+
+| Enhancement | Description | Files |
+|-------------|-------------|-------|
+| **Real API Integration** | Live weather data from WeatherAPI.com | `src/server.ts` |
+| **Parameter Elicitation** | Conversational prompting with Zod validation | `src/server.ts` |
+| **Smart Error Handling** | Graceful failures with user-friendly messages | `src/server.ts` |
+| **Azure Environment Variables** | Secure API key management | `infra/resources.bicep` |
+| **Comprehensive Testing** | Local and Azure validation scripts | `tests/` folder |
+| **Enterprise Documentation** | Copy-paste ready integration guides | `docs/` folder |
+| **Signature Filtering** | Bypasses Copilot Studio content filters | `src/server.ts` |
+
+## 👨‍💻 Use the Enhanced MCP Server
+
+### In Visual Studio Code / GitHub Copilot
+
+This enhanced server provides 7 production-ready tools (4 joke tools + 3 weather tools) with smart parameter elicitation.
+
+**Setup Instructions:**
 
 1. Press either `ctrl` + `shift` + `P` (Windows/Linux) or `cmd` + `shift` + `P` (Mac) and type `MCP`
 1. Select `MCP: Add Server...`
@@ -261,9 +289,11 @@ This should give you a response like this:
 
 ![Screenshot of question to provide a joke from the dev category and the answer from GitHub Copilot](./assets/github-copilot-get-joke.png)
 
-Now you have added the `JokesMCP` server to Visual Studio Code!
+Now you have added the enhanced `OliOlli MCP` server to Visual Studio Code!
 
-## 👨‍💻 Use the Jokes MCP Server in Microsoft Copilot Studio
+### In Microsoft Copilot Studio
+
+The enhanced server includes enterprise-ready features for Copilot Studio integration.
 
 **Import the Connector**
 

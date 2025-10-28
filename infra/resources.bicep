@@ -4,6 +4,9 @@ param location string = resourceGroup().location
 @description('Tags that will be applied to all resources')
 param tags object = {}
 
+@description('Weather API key for weather functionality')
+@secure()
+param weatherApiKey string = ''
 
 param jokesmcpHttpTypescriptExists bool
 
@@ -102,7 +105,7 @@ module jokesmcpHttpTypescript 'br/public:avm/res/app/container-app:0.8.0' = {
           }
           {
             name: 'WEATHER_API_KEY'
-            value: '26cfc22650dc45c7aa2190015252810'
+            value: weatherApiKey
           }
         ]
       }
