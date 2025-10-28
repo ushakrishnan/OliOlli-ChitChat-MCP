@@ -5,9 +5,6 @@
 ## 🎥 Live Demonstration
 
 **See the OliOlli MCP Server in action with Microsoft Copilot Studio integration:**
-
-[![OliOlli MCP Server Demo](https://img.youtube.com/vi/oLNaZOOcOyA/maxresdefault.jpg)](https://youtu.be/oLNaZOOcOyA)
-
 **[🎬 Watch Full Demo on YouTube →](https://youtu.be/oLNaZOOcOyA)**
 
 > 📺 **Video shows**: Weather forecasts, joke integration, and smart parameter elicitation working live in Microsoft Copilot Studio
